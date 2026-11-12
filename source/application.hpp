@@ -1,6 +1,7 @@
 #pragma once
 #include "graphics_internal.hpp"
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 namespace application {
 struct Vertex { glm::vec3 position; };
