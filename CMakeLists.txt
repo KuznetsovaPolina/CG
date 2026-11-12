@@ -24,6 +24,7 @@ endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD_REQUIRED TRUE CXX_STANDARD 20)
 
+
 FetchContent_Declare(
     glfw
     GIT_REPOSITORY https://github.com/glfw/glfw.git
@@ -48,10 +49,12 @@ FetchContent_Declare(
     GIT_TAG v1.92.9
 )
 
+set(GLM_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLM_BUILD_INSTALL OFF CACHE BOOL "" FORCE)
 FetchContent_Declare(
     glm
     GIT_REPOSITORY https://github.com/g-truc/glm.git
-    GIT_TAG 0.9.9.8
+    GIT_TAG 1.0.1
 )
 
 find_package(Vulkan REQUIRED)
@@ -88,7 +91,6 @@ target_sources(${PROJECT_NAME} PRIVATE
     ${imgui_SOURCE_DIR}/imgui_demo.cpp
 )
 
-# Compile shaders
 find_program(GLSLC_FOUND glslc)
 if(GLSLC_FOUND)
     set(_SHADER_BINARIES)
